@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+// import reactDom from 'react-dom';
+
+import NavBar from './NavBar/NavBar';
+import './NavBar/NavBar.css';
+
 
 function App() {
+
+  // const style = {
+  //   margin: "0",
+  //   color: "red"
+  // } Para llamar el style, pongo style= {style} en la etiqueta que le quiero poner ese estilo.
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p> Pedro Carvi </p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
     </div>
   );
 }
