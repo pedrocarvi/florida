@@ -1,10 +1,13 @@
 import React from 'react'
-import imagenes from "../../img/imagenes.js";
+import imagenes from "../../img/imagenes.js"
+import Carro from './CartWidget'
 
 const NavBar = () => {
-    return (
-        <header id="arriba" class="header">
 
+    return (
+
+        <header id="arriba" class="header">
+        
         {/* <!-- HEADER DESKTOP --> */}
         <div class="header__desktop">
             
@@ -20,10 +23,16 @@ const NavBar = () => {
             </div>
 
              {/* <!-- Carrito --> */}
-             <div class="header__desktop--usuario">
+             {/* <div class="header__desktop--usuario">
                 <img src={imagenes.carrito} alt="carrito" />
                 <img src={imagenes.usuario} alt="usuario" />
+            </div> */}
+          
+            <div class="header__desktop--usuario">
+                <Carro/>
             </div>
+           
+            
 
             {/* <!-- Nav --> */}
             <nav class="header__desktop--menu">
