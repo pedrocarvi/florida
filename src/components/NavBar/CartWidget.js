@@ -5,7 +5,7 @@ export default class Carro extends Component {
     render() {
         return (
                <div>
-                   <img href={imagenes.carrito} alt="img"/>
+                   <img src={imagenes.carrito} alt="img"/>
                </div>
         )
     }
