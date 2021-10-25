@@ -1,8 +1,8 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css';
-import './components/ItemListContainer.css'
-import Greeting from './components/ItemListContainer';
+import Greeting from './components/ItemListContainer/ItemListContainer';
+import './components/ItemListContainer/ItemListContainer.css'
 
 
 
