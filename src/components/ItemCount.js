@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 import './ItemCount.css'
 
-export default function Contador({stock, initial}) {
+export default function Contador({stock, initial, onAdd}) {
 
     const [contador, setContador] = useState(initial)
 
-    const sumar = () => setContador(contador + 1);
-    const restar = () => setContador(contador - 1);
+    const sumar = () => {
+        setContador(contador + 1);
 
-    const carrito = () => {
-        if (contador === 0) {
-            alert("Ingrese una cantidad")
-        } else {
-            alert(`Se agregaron ${contador} productos a tu carrito`)
+        if (contador === stock + 1) {
+            alert("No hay suficiente stock")    
+            setContador(contador - 1)    
         }
     }
-
-    if (contador === stock + 1 ) {
-        alert("No hay suficiente stock")    
+    const restar = () => {
         setContador(contador - 1)
-    }
 
-    if (contador < 0) {
-        alert("No puede ser menos que 0")
-        setContador(contador + 1)
+        if (contador === 0) {
+            alert("Debes seleccionar una cantidad valida")
+            setContador(contador + 1)
+        }
     }
 
     return ( 
@@ -33,7 +29,7 @@ export default function Contador({stock, initial}) {
                 <p> {contador} </p>
                 <button onClick={sumar}> + </button>
             </div>
-            <button className="agregar-carrito" onClick={carrito}> Agregar al carrito </button>
+            <button className="agregar-carrito" onClick={onAdd()}> Agregar al carrito </button>
         </>
     )
 }
