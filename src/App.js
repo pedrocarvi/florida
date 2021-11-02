@@ -3,6 +3,7 @@ import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css';
 import Greeting from './components/ItemListContainer/ItemListContainer';
 import './components/ItemListContainer/ItemListContainer.css'
+import Contador from './components/ItemCount';
 
 
 
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Greeting titulo="Florida Frutas Secas"/>
+      <Contador stock={10} initial={1}/>
     </div>
   );
 }

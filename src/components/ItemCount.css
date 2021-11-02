@@ -1,0 +1,35 @@
+.contadorCarrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 30px;
+}
+
+.contadorCarrito button {
+    width: 25px;
+    height: 25px;
+    background-color: #ff7700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.contadorCarrito button:hover {
+    background-color: #ff8c27;
+}
+
+.agregar-carrito {
+    height: 30px;
+    width: 120px;
+    background-color: #ff7700;
+    border: none;
+    margin-bottom: 100px;
+    color: rgb(242, 242, 242);
+    cursor: pointer;
+    border-radius: 3px;
+}
+.agregar-carrito:hover {
+    background-color: #ff8c27;
+}

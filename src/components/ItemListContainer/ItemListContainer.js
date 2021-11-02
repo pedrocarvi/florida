@@ -1,7 +1,7 @@
-export default function Greeting(props) {
+export default function Greeting({titulo}) {
     return(
         <div className="bienvenida">
-            <h1> {props.titulo}</h1>
+            <h1> {titulo}</h1>
         </div>
     )
 }
