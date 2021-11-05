@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './ItemCount.css'
 
 export default function Contador({stock, initial, onAdd}) {
 
@@ -8,9 +7,9 @@ export default function Contador({stock, initial, onAdd}) {
     const sumar = () => {
         setContador(contador + 1);
 
-        if (contador === stock + 1) {
+        if (contador === stock) {
             alert("No hay suficiente stock")    
-            setContador(contador - 1)    
+            setContador(contador - 1)
         }
     }
     const restar = () => {
@@ -29,7 +28,7 @@ export default function Contador({stock, initial, onAdd}) {
                 <p> {contador} </p>
                 <button onClick={sumar}> + </button>
             </div>
-            <button className="agregar-carrito" onClick={onAdd()}> Agregar al carrito </button>
+            <button className="agregar-carrito" onClick={onAdd}> Agregar al carrito </button>
         </>
     )
 }

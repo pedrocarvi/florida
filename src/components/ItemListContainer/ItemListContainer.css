@@ -1,3 +1,5 @@
+/* ----- Presentacion ----- */
+
 .bienvenida {
     width: 100vw;
     min-height: 500px;
@@ -10,4 +12,75 @@
 
 .bienvenida h1 {
     color: white;
+}
+
+/* ----- Carrito Contador ------ */
+
+.contadorCarrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 4px auto;
+    gap: 30px;
+}
+
+.contadorCarrito button {
+    width: 25px;
+    height: 25px;
+    background-color: #ff7700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.contadorCarrito button:hover {
+    background-color: #ff8c27;
+}
+
+.agregar-carrito {
+    height: 30px;
+    width: 120px;
+    background-color: #ff7700;
+    border: none;
+    margin-bottom: 20px;
+    color: rgb(242, 242, 242);
+    cursor: pointer;
+    border-radius: 3px;
+}
+.agregar-carrito:hover {
+    background-color: #ff8c27;
+}
+
+
+/* ----- Catalogo ----- */
+
+.gridProductos {
+    width: 80vw;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 18px;
+}
+
+.producto img {
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.producto:hover {
+    transform: scale(1.03,1.03) ;
+    cursor: pointer;
+    box-shadow: 4px 6px 7px 1px rgba(192,187,197,0.54);
 }

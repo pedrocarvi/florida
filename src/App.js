@@ -1,11 +1,6 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import './components/NavBar/NavBar.css';
-import Greeting from './components/ItemListContainer/ItemListContainer';
-import './components/ItemListContainer/ItemListContainer.css'
-import Contador from './components/ItemCount';
-
-
+import NavBar from './components/NavBar/NavBar.jsx';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
 
 function App() {
 
@@ -17,8 +12,7 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <Greeting titulo="Florida Frutas Secas"/>
-      <Contador stock={10} initial={1}/>
+      <ItemListContainer greeting="Florida Frutas Secas E-commerce"/>
     </div>
   );
 }

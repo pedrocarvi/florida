@@ -1,41 +1,42 @@
 import React from 'react'
+import './NavBar.css'
 import imagenes from "../../img/imagenes.js"
-import Carro from './CartWidget'
+import Carro from './CartWidget.jsx'
 
 const NavBar = () => {
 
     return (
 
-        <header id="arriba" class="header">
+        <header id="arriba" className="header">
         
         {/* <!-- HEADER DESKTOP --> */}
-        <div class="header__desktop">
+        <div className="header__desktop">
             
             {/* <!-- Logo --> */}
-            <div class="header__desktop--logo">
-                <a href="index.html"> <img src={imagenes.logo} alt="logo" class="imagenLogo" /> </a>
+            <div className="header__desktop--logo">
+                <a href="index.html"> <img src={imagenes.logo} alt="logo" className="imagenLogo" /> </a>
             </div>
 
             {/* <!-- Buscador --> */}
-            <div class="header__desktop--search">
+            <div className="header__desktop--search">
                 <input type="search" id="buscador" placeholder="Busca tu producto..." />
-                <label for="buscador" class="search--lupa"> <img src={imagenes.lupa} alt="buscador" /> </label>
+                <label for="buscador" className="search--lupa"> <img src={imagenes.lupa} alt="buscador" /> </label>
             </div>
 
              {/* <!-- Carrito --> */}
-             {/* <div class="header__desktop--usuario">
+             {/* <div className="header__desktop--usuario">
                 <img src={imagenes.carrito} alt="carrito" />
                 <img src={imagenes.usuario} alt="usuario" />
             </div> */}
           
-            <div class="header__desktop--usuario">
+            <div className="header__desktop--usuario">
                 <Carro/>
             </div>
            
             
 
             {/* <!-- Nav --> */}
-            <nav class="header__desktop--menu">
+            <nav className="header__desktop--menu">
                 <ul>
                     <li><a href="#"> Inicio </a></li>
 
@@ -51,28 +52,28 @@ const NavBar = () => {
 
         {/* <!-- HEADER MOBILE --> */}
 
-        <div class="header__mobile">
+        <div className="header__mobile">
 
             {/* <!-- Menu hamburguesa--> */}
-            <button class="hamburger hamburger--squeeze panel-btn" type="button" id="hamburguer">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"> </span>
+            <button className="hamburger hamburger--squeeze panel-btn" type="button" id="hamburguer">
+                <span className="hamburger-box">
+                    <span className="hamburger-inner"> </span>
                 </span>
             </button>
 
             {/* <!-- Logo --> */}
-            <div class="header__logo">
-                <a href="index.html"> <img src={imagenes.logo} alt="logo" class="imagenLogo" /> </a>
+            <div className="header__logo">
+                <a href="index.html"> <img src={imagenes.logo} alt="logo" className="imagenLogo" /> </a>
             </div>
 
             {/* <!-- Nav --> */}
-            <aside className="panel">
-                <nav class="header__menu menu">
+            <aside classNameName="panel">
+                <nav className="header__menu menu">
                     <ul>
                         <li><a href="#"> Inicio </a></li>
 
                         <li id="spanBtn"> Productos <span> <img src={imagenes.flechaAbajo} alt="flecha" width="13px"/> </span>
-                            <ul class="sublista">
+                            <ul className="sublista">
                                 <li> <a href=""> Frutos secos </a> </li>
                                 <li> <a href=""> Granolas </a> </li>
                                 <li> <a href=""> Cereales </a> </li>
@@ -97,7 +98,7 @@ const NavBar = () => {
             
 
             {/* <!-- Carrito --> */}
-            <div class="header__carrito">
+            <div className="header__carrito">
                 <img src={imagenes.carrito} alt="carrito" />
             </div>
 

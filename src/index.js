@@ -5,6 +5,6 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <App titulo='Soy App'/> ,
+    <App/> ,
     document.getElementById('root')
 );
