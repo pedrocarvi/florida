@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar.jsx';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <ItemListContainer greeting="Florida Frutas Secas E-commerce"/>
+      <ItemDetailContainer/>
     </div>
   );
 }

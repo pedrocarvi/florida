@@ -1,0 +1,43 @@
+.productoDetalle {
+    width: 92vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.productoDetalle img {
+    width: 500px;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.barraLateralDetalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.barraLateralDetalle p:nth-child(2){
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.barraLateralDetalle p:nth-child(3){
+    font-size: 0.9rem;
+    color: rgb(75, 75, 75);
+}
+
+
+
+.productoDetalleDescripcion {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.barraLateralDetalle .contadorCarrito p {
+    font-weight: 300;
+    font-size: 0.9rem;
+}

@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto 4px auto;
+    margin: 10px auto 0px auto;
     gap: 30px;
 }
 
@@ -43,7 +43,7 @@
     width: 120px;
     background-color: #ff7700;
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: rgb(242, 242, 242);
     cursor: pointer;
     border-radius: 3px;
@@ -69,6 +69,7 @@
     width: 230px;
     height: 230px;
     object-fit: contain;
+    border-bottom: 1px solid rgb(209, 209, 209);
 }
 
 .producto {
@@ -76,11 +77,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 9px;
 }
 
 .producto:hover {
     transform: scale(1.03,1.03) ;
     cursor: pointer;
     box-shadow: 4px 6px 7px 1px rgba(192,187,197,0.54);
+    border: 1px solid rgb(209, 209, 209)
+}
+
+.descripcionProducto {
+    color: rgb(55, 55, 55);
+    font-size: 0.9rem;
 }

@@ -11,10 +11,11 @@ export default function ItemList() {
             <div className="producto" key={prod.id}>
                 <img src={prod.foto} alt="imgproduct" className="imgProductos"/>
                 <h4> {prod.name} </h4>
+                <p className="descripcionProducto"> {prod.descripcion} </p>
                 <p> ${prod.precio }</p>     
+
                 <Contador stock={10} initial={1}/> 
             </div>)}
-            
          </div>
         </>
     )
