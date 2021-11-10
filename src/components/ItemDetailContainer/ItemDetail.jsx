@@ -1,4 +1,4 @@
-import { productos } from "../ItemListContainer/ItemListContainer";
+import { productos } from "../../services/getFetch";
 import Contador from "../ItemListContainer/ItemCount";
 
 export default function ItemDetail() {

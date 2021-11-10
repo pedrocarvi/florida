@@ -4,6 +4,7 @@ import lupa from "../img/loupe.png";
 import flechaAbajo from "../img/flecha-abajo.png";
 import hamburguesa from "../img/menu_responsive.png";
 import iconoUsuario from "../img/user.png"
+import loading from "../img/loading.gif"
 
 export default {
     "logo": logo,
@@ -12,4 +13,5 @@ export default {
     "flechaAbajo": flechaAbajo,
     "menuHamburguesa": hamburguesa,
     "usuario": iconoUsuario,
+    "loading": loading,
 }

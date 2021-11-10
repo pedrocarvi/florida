@@ -1,22 +1,11 @@
-import { productos } from './ItemListContainer';
-import Contador from './ItemCount';
+import Item from './Item'
 
-
-
-export default function ItemList() {
+export default function ItemList({productos}) {
     return(
         <>
         <div className="gridProductos"> 
-            {productos.map(prod => 
-            <div className="producto" key={prod.id}>
-                <img src={prod.foto} alt="imgproduct" className="imgProductos"/>
-                <h4> {prod.name} </h4>
-                <p className="descripcionProducto"> {prod.descripcion} </p>
-                <p> ${prod.precio }</p>     
-
-                <Contador stock={10} initial={1}/> 
-            </div>)}
-         </div>
+            {productos.map( prod => <Item prod={prod}/> )}
+        </div>
         </>
     )
 }
