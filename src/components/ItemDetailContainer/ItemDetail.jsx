@@ -1,32 +1,27 @@
-import { productos } from "../../services/getFetch";
-import Contador from "../ItemListContainer/ItemCount";
+import React from 'react';
 
-export default function ItemDetail() {
+export default function ItemDetail({item}) {
     return(
         <>
-            {productos.map( producto => 
-                <div key={producto.id}>
+                <div key={item.id}>
 
                     <div className="productoDetalle"> 
                     
-                        <img src={producto.foto} alt="imgDetalle" className="imgDetalle"/>
+                        <img src={item.foto} alt="imgDetalle" className="imgDetalle"/>
 
                         <div className="barraLateralDetalle">
-                            <h2> {producto.name }</h2>
-                            <p> ${producto.precio} </p>
-                            <p> Stock: {producto.stock} </p>
-                            <Contador initial={1}/>
+                            <h2> {item.name }</h2>
+                            <p> ${item.precio} </p>
+                            <p> Stock: {item.stock} </p>
+                            
                         </div>
                     </div>
 
                     <div className="productoDetalleDescripcion">
-                        <h3> Descripcion del producto </h3>
-                        <p> {producto.descripcion} </p>
+                        <h3> Descripcion del item </h3>
+                        <p> {item.descripcion} </p>
                     </div>
                 </div>
-
-                
-                )}
         </>
     )
 }

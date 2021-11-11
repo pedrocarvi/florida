@@ -29,8 +29,7 @@ export default function ItemListContainer({greeting}) {
         
         {/* <Contador stock={10} initial={1}/>    */}
         
-        {loading ? <Spinner/> :
-        <ItemList productos={products}/>} 
+        {loading ? <Spinner/> : <ItemList productos={products}/>} 
         </>
     )
 }
