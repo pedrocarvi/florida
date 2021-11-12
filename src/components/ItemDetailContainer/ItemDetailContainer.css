@@ -1,6 +1,6 @@
 .productoDetalle {
     width: 92vw;
-    margin: 0 auto;
+    margin: 50px auto;
     display: flex;
     justify-content: space-evenly;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import './NavBar.css'
 import imagenes from "../../img/imagenes.js"
 import Carro from './CartWidget.jsx'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -14,7 +15,7 @@ const NavBar = () => {
             
             {/* <!-- Logo --> */}
             <div className="header__desktop--logo">
-                <a href="index.html"> <img src={imagenes.logo} alt="logo" className="imagenLogo" /> </a>
+                <img src={imagenes.logo} alt="logo" className="imagenLogo"/> 
             </div>
 
             {/* <!-- Buscador --> */}
@@ -38,13 +39,15 @@ const NavBar = () => {
             {/* <!-- Nav --> */}
             <nav className="header__desktop--menu">
                 <ul>
-                    <li><a href="#"> Inicio </a></li>
+                    <li> <Link to="/"> Inicio </Link> </li>
 
-                    <li><a href="#"> Productos </a></li>
+                    <li> <Link to="/categoria/frutossecos"> Frutos secos </Link> </li>
 
-                    <li><a href="#"> Nosotros </a></li>
+                    <li> <Link to="/categoria/legumbres"> Legumbres </Link> </li>
 
-                    <li><a href="#"> Contacto </a></li>
+                    <li> Nosotros </li>
+
+                    <li> Contacto </li>
                 </ul>
             </nav>
 

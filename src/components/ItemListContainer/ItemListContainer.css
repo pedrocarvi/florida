@@ -2,7 +2,7 @@
 
 .bienvenida {
     width: 100vw;
-    min-height: 500px;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,4 +90,19 @@
 .descripcionProducto {
     color: rgb(55, 55, 55);
     font-size: 0.9rem;
+}
+
+.producto button {
+    width: 150px;
+    height: 30px;
+    margin: 10px auto;
+    background-color: #ff7700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.producto button:hover {
+    background-color: #ff8c27;
 }

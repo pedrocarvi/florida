@@ -1,5 +1,5 @@
 import React from 'react';
-import Contador from './ItemCount';
+import { Link } from 'react-router-dom';
 
 const Item = ({prod}) => {
     return(
@@ -8,8 +8,9 @@ const Item = ({prod}) => {
                 <h4> {prod.name} </h4>
                 <p className="descripcionProducto"> {prod.descripcion} </p>
                 <p> ${prod.precio }</p>     
-
-                <Contador stock={10} initial={1}/> 
+                <Link to={`/detail/${prod.id}`}> 
+                    <button> Ver mas </button>  
+                </Link>
            </div>
     )
 }

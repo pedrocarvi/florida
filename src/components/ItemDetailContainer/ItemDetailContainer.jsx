@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { productos } from '../../services/getFetch';
+import { productos } from '../../services/productos';
 import ItemDetail from './ItemDetail';
 import Spinner from '../ItemListContainer/Spinner';
 import './ItemDetailContainer.css'
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
 
-    const {id} = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
         getItem
@@ -34,11 +34,11 @@ const ItemDetailContainer = () => {
             .finally(() => setLoading(false))
         } , [id])
 
-    console.log(item);
+    console.log(item)
     
     return(
         <>
-            {loading ? <Spinner/> : <ItemDetail item={productos[0]}/>}
+            {loading ? <Spinner/> : <ItemDetail item={item}/>}
         </>
     )
 }
