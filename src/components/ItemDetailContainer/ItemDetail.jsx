@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function ItemDetail({item}) {
     return(
@@ -13,7 +14,7 @@ export default function ItemDetail({item}) {
                             <h2> {item.name }</h2>
                             <p> ${item.precio} </p>
                             <p> Stock: {item.stock} </p>
-                            
+                            <ItemCount stock={10} initial={1}/>
                         </div>
                     </div>
 
