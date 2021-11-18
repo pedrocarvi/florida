@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import Caso2 from './components/abstraccion2.jsx';
 // import { Viewport } from './components/mouse.jsx';
 import './App.css';
+import Cart from './components/Cart/Cart.jsx';
+
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
             <Route exact path="/" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
             <Route exact path="/categoria/:categoryID" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
             <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
+            <Route exact path="/cart" element={<Cart/>}/>
           </Routes>
           {/* <Intercambiabilidad/> */}
           {/* <Caso1/> */}

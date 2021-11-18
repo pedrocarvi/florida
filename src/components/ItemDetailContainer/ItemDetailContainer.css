@@ -41,3 +41,25 @@
     font-weight: 300;
     font-size: 0.9rem;
 }
+
+/* ---------------------------------------- */
+
+.intercambAggCarrito {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.intercambAggCarrito button {
+    height: 35px;
+    width: 120px;
+    background-color: #ff7700;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.intercambAggCarrito button:hover {
+    background-color: #ff8c27;
+}
