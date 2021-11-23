@@ -4,6 +4,7 @@ import { productos } from '../../services/productos';
 import ItemDetail from './ItemDetail';
 import Spinner from '../ItemListContainer/Spinner';
 import './ItemDetailContainer.css'
+import { useCartContext } from '../../context/CartContext';
 
 const getItem = new Promise((res, rej) => {
     const condition = true;
@@ -21,9 +22,19 @@ const getItem = new Promise((res, rej) => {
 const ItemDetailContainer = () => {
     
     const [item, setItem] = useState({})
+
     const [loading, setLoading] = useState(true)
 
-    const { id } = useParams()
+    const [click, setClick] = useState(false)
+
+    const {cartList, addItem } = useCartContext()
+
+    const {id} = useParams()
+
+    const handleAdd = (count) =>{
+        setClick(count)
+        addItem(item, count)
+    }
 
     useEffect(() => {
         getItem
@@ -34,11 +45,12 @@ const ItemDetailContainer = () => {
             .finally(() => setLoading(false))
         } , [id])
 
+    console.log(cartList);
     console.log(item)
     
     return(
         <>
-            {loading ? <Spinner/> : <ItemDetail item={item}/>}
+            {loading ? <Spinner/> : <ItemDetail item={item} {...{click, setClick}} handleAdd={handleAdd}/>}
         </>
     )
 }

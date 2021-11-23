@@ -8,24 +8,30 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { Viewport } from './components/mouse.jsx';
 import './App.css';
 import Cart from './components/Cart/Cart.jsx';
-
+import CartContextProvider from './context/CartContext.jsx'
 
 function App() {
 
   return (    
       <div className="App">
-        <BrowserRouter> 
-          <NavBar/>
-          <Routes> 
-            <Route exact path="/" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
-            <Route exact path="/categoria/:categoryID" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
-            <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
-            <Route exact path="/cart" element={<Cart/>}/>
-          </Routes>
+        <CartContextProvider>
+          <BrowserRouter> 
+            
+            <NavBar/>
+            
+            <Routes> 
+              <Route exact path="/" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
+              <Route exact path="/categoria/:categoryID" element={<ItemListContainer greeting="Florida E-Commerce"/>}/>
+              <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
+              <Route exact path="/cart" element={<Cart/>}/>
+            </Routes>
+
           {/* <Intercambiabilidad/> */}
           {/* <Caso1/> */}
           {/* <Caso2/> */}
-        </BrowserRouter>
+
+          </BrowserRouter>
+          </CartContextProvider>
       </div>
 
   );

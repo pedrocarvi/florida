@@ -1,20 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetailContainer/ItemDetailContainer.css'
 
-export default function ItemDetail({item}) {
-
-    const [count, setCount] = useState(1)
-
-    const [wasClicked, setWasClicked] = useState(false)
-
-    const handleAdd = (cant) => {
-        alert(`Se agregaron ${cant} productos`)
-        setWasClicked(true);
-    }
-
+export default function ItemDetail({item, click, setClick, handleAdd}) {
+  
     return(
         <>
                 <div key={item.id}>
@@ -28,7 +18,7 @@ export default function ItemDetail({item}) {
                             <p> ${item.precio} </p>
                             <p> Stock: {item.stock} </p>
 
-                            { wasClicked ?
+                            { click ?
                                 <div className="intercambAggCarrito">
                                     <Link to="/"> 
                                         <button> Volver </button>
@@ -39,7 +29,6 @@ export default function ItemDetail({item}) {
                                 </div> 
                                 :
                                 <ItemCount 
-                                    {...{count, setCount}}
                                     initial = {1}
                                     stock={10}
                                     onAdd={handleAdd}/>
