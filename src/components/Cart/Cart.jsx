@@ -1,53 +1,113 @@
 import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import "./Cart.css";
 
 export default function Cart() {
-
-    const {cartList, removeItem, clearCart, itemCounter } = useCartContext()
+    const { cartList, removeItem, clearCart, itemCounter } = useCartContext();
 
     let totalPrice = 0;
-    
-    return ( <>
-    
-    {cartList.length === 0 && 
-        <div className="emptyCart-container"> <br/>
-            <h2 className="checkOut-title"> Carrito vacio!</h2> <br/>
-            <Link to="/">
-                <button className="checkOut-btn"> Volver a la pagina principal </button>
-            </Link>
-        </div>}
-    
-    {cartList.length > 0 && 
-        <div className="cart-container">
-            <div className="items-cart-container">
-                {cartList.map(item => <div className="product-card-cart" key={item.id}>
-                                        <div>
-                                            <img src={item.foto} alt="" className="product-img" width="100px"/>
-                                        </div>
-                                        <div className="info-container">
-                                            <h3 className="product-title-cart">{item.name} </h3>
-                                            <p className="product-amount"> Cantidad: {item.cant}</p>
-                                            <p className="product-price">${item.precio}</p>
-                                            <button onClick={() => removeItem(item.id)} className="delete-item-btn" title="Delete item"> Eliminar producto </button>
-                                        </div>
-                                    </div>
-                                    )}
-            </div>
 
-            {cartList.map(item => { totalPrice = item.precio * item.count + totalPrice })}
-            <div className="items-detail-container">
-                <h2 className="checkOut-title"> Tu compra </h2>
-                <div className="checkOut-description-container">
-                    <p className="checkOut-description">Total items: {itemCounter()}</p>
-                    <p className="checkOut-description">Total price: ${totalPrice}</p>
-                </div>
-                <div>
+    return (
+        <>
+            {/* Carrito vacio */}
+
+            {cartList.length === 0 && (
+                <div className="carritoVacioContainer">
+                    {" "}
+                    <br />
+                    <h2 className="carritoVacioTitulo"> Carrito vacio </h2> <br />
                     <Link to="/">
-                        <button className="keep-shopping-btn"> Seguir comprando </button> 
-                    </Link> <br/>
-                    <button onClick={clearCart} className="delete-all-btn"> Eliminar Carrito </button>
+                        <button className="carritoVaciobtn">
+                            {" "}
+                            Volver a la pagina principal{" "}
+                        </button>
+                    </Link>
                 </div>
-            </div>
-        </div>
-    }</>)
+            )}
+
+            {/* Carrito con productos */}
+
+            {cartList.length > 0 && (
+                <div className="carritoContainer">
+                    <div className="carritoTablaContainer">
+                        <table className="carritoTabla carritoTabla1">
+                            <thead>
+                                <tr>
+                                    <th> Imagen </th>
+                                    <th> Nombre </th>
+                                    <th> Precio </th>
+                                    <th> Cantidad </th>
+                                    <th> Subtotal </th>
+                                    <th> Eliminar </th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                        {cartList.map((item) => (
+                            <div key={item.id}>
+                                <table className="carritoTabla">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {" "}
+                                                <img
+                                                    src={item.foto}
+                                                    alt="imagen"
+                                                    className="imgProducto"
+                                                    width="100px"
+                                                />{" "}
+                                            </td>
+
+                                            <td className="nombreProducto"> {item.name} </td>
+
+                                            <td className="precioProducto"> ${item.precio} </td>
+
+                                            <td> {item.count} </td>
+
+                                            <td> ${item.precio * item.count} </td>
+
+                                            <td>
+                                                {" "}
+                                                <button
+                                                    onClick={() => removeItem(item.id)}
+                                                    className="delete-item-btn"
+                                                    title="Delete item"
+                                                >
+                                                    {" "}
+                                                    X{" "}
+                                                </button>{" "}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        ))}
+                    </div>
+
+                    {cartList.map((item) => {
+                        totalPrice = item.precio * item.count + totalPrice;
+                    })}
+
+                    <div className="carritoCompra">
+
+                        <h2 className="carritoCompra-titulo"> Tu compra: <span> ${totalPrice}, </span> <span className="cantProductos"> {itemCounter()} productos </span> </h2>
+
+                        <div className="compraBotones">
+                            <Link to="/">
+                                <button className="keep-shopping-btn">
+                                    {" "}
+                                    Seguir comprando{" "}
+                                </button>
+                            </Link>{" "}
+                            <br />
+                            <button onClick={clearCart} className="delete-all-btn">
+                                {" "}
+                                Eliminar Carrito{" "}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
+    );
 }

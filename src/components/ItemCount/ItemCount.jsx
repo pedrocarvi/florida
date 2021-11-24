@@ -5,20 +5,11 @@ export default function ItemCount( { initial, stock, onAdd}) {
     const [count, setCount] = useState(initial)
 
     const sumar = () => {
-        setCount(count + 1);
-
-        if (count === stock) {
-            alert("No hay suficiente stock")    
-            setCount(count - 1)
-        }
+        count < stock ? setCount(count + 1) : alert("No hay mas stock")
     }
-    const restar = () => {
-        setCount(count - 1)
 
-        if (count <= 1) {
-            setCount(count + 1)
-            alert("Debes seleccionar minimo 1 producto")
-        }
+    const restar = () => {
+        count > initial ? setCount(count - 1) : alert("No podes seleccionar menos de 1 producto")
     }
 
     return ( 
