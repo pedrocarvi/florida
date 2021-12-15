@@ -19,10 +19,10 @@ const NavBar = () => {
             </div>
 
             {/* <!-- Buscador --> */}
-            <div className="header__desktop--search">
+            {/* <div className="header__desktop--search">
                 <input type="search" id="buscador" placeholder="Busca tu producto..." />
                 <label for="buscador" className="search--lupa"> <img src={imagenes.lupa} alt="buscador" /> </label>
-            </div>
+            </div> */}
 
              {/* <!-- Carrito --> */}
              {/* <div className="header__desktop--usuario">
@@ -44,6 +44,10 @@ const NavBar = () => {
                     <li> <Link to="/categoria/frutossecos"> Frutos secos </Link> </li>
 
                     <li> <Link to="/categoria/legumbres"> Legumbres </Link> </li>
+
+                    <li> <Link to="/categoria/pastas"> Pastas </Link></li>
+
+                    <li> <Link to="/categoria/semillas"> Semillas </Link> </li>
 
                     <li> Nosotros </li>
 

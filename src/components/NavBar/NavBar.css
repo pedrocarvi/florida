@@ -7,7 +7,7 @@ header .header__desktop {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "logo buscador usuario"
+    grid-template-areas: "empty logo usuario"
  "nav nav nav"; 
 }
     header .header__desktop .header__desktop--logo {

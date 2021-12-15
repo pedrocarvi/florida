@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+.footer {
+    width: 100vw;
+    height: 150px;
+    background-color: #ff8c27;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    
+}
+
+.footer h3 {
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+

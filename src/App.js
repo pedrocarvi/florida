@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart/Cart.jsx';
 import CartContextProvider from './context/CartContext.jsx'
+import Footer from './components/Footer/Footer.jsx';
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
 
           </BrowserRouter>
           </CartContextProvider>
+
+          <Footer/>
       </div>
 
   );

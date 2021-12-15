@@ -22,9 +22,7 @@ const getFetch = new Promise((resolve, reject) => {
 
 export default function ItemListContainer({greeting}) {
 
-    const [bool, setBool] = useState(true)
     const [products, setProducts] = useState([])
-    const [prod, setProd] = useState({})
     const [loading, setLoading] = useState(true)
 
         
@@ -33,19 +31,17 @@ export default function ItemListContainer({greeting}) {
     // Usamos el useEffect para que se llame una sola vez. Clase 6 : 1h 37min 
     useEffect(() => {
 
-        const dbQuery = getFirestore()
+        
+        
+            const db = getFirestore()
+            const dbQuery = categoryID ?  db.collection('items').where('categoria','==',categoryID) : db.collection('items')
+            dbQuery.get()
+            .then (data => setProducts(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
+            .catch(err=>console.log(err) )
+             .finally(()=> setLoading(false))
+          
 
-        // TRAER UN PRODUCTO POR SU ID
-        // dbQuery.collection('items').doc('3dZbnnSOwlULKjElhePn').get()
-        // .then(resp => setProd( { id: resp.id,  ...resp.data() } ))
-
-        // TRAER TODOS
-        dbQuery.collection('items').where('precio', '<', 1000).get()
-        .then(data => setProducts(data.docs.map(produ => ( { id: produ.id,  ...produ.data() }))))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false))
-
-        console.log(products);
+       
         // if ( categoryID ) {
 
         //     getFetch
@@ -71,18 +67,15 @@ export default function ItemListContainer({greeting}) {
         // }
         
     }, [categoryID] )
-
-    // console.log(categoryID);
-    
+   
     return(
         <>
-        <div className="bienvenida">
+        <div className="main-bienvenida">
             <h1> {greeting}</h1>
         </div>
-        
-        {/* <Contador stock={10} initial={1}/>    */}
-        
+
         {loading ? <Spinner/> : <ItemList productos={products}/>} 
+
         </>
     )
 }

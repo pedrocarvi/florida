@@ -1,6 +1,6 @@
 /* ----- Presentacion ----- */
 
-.bienvenida {
+.main-bienvenida {
     width: 100vw;
     min-height: 300px;
     display: flex;
@@ -10,7 +10,7 @@
     background-size: cover;
 }
 
-.bienvenida h1 {
+.main-bienvenida h1 {
     color: white;
 }
 
