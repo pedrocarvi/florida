@@ -31,8 +31,6 @@ export default function ItemListContainer({greeting}) {
     // Usamos el useEffect para que se llame una sola vez. Clase 6 : 1h 37min 
     useEffect(() => {
 
-        
-        
             const db = getFirestore()
             const dbQuery = categoryID ?  db.collection('items').where('categoria','==',categoryID) : db.collection('items')
             dbQuery.get()
@@ -40,7 +38,7 @@ export default function ItemListContainer({greeting}) {
             .catch(err=>console.log(err) )
              .finally(()=> setLoading(false))
           
-
+        // LOCAL API CALL
        
         // if ( categoryID ) {
 
