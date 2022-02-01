@@ -1,9 +1,11 @@
 import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import 'firebase/firestore';
 
 export default function Cart() {
-    const { cartList, removeItem, clearCart, itemCounter } = useCartContext();
+    
+    const { cartList, removeItem, clearCart, itemCounter} = useCartContext();
 
     let totalPrice = 0;
 

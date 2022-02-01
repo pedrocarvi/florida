@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { productos } from '../../services/productos';
+// import { productos } from '../../services/productos';
 import ItemDetail from './ItemDetail';
 import Spinner from '../ItemListContainer/Spinner';
 import './ItemDetailContainer.css'
 import { useCartContext } from '../../context/CartContext';
 import {getFirestore} from "../../services/getFirestore"
 
-const getItem = new Promise((res, rej) => {
-    const condition = true;
+// const getItem = new Promise((res, rej) => {
+//     const condition = true;
 
-    if(condition) {
-        setTimeout(() => {
-            res(productos)
-        }, 2000);
-    }
-    else {
-        rej('404 not found')
-    }
-})
+//     if(condition) {
+//         setTimeout(() => {
+//             res(productos)
+//         }, 2000);
+//     }
+//     else {
+//         rej('404 not found')
+//     }
+// })
 
 const ItemDetailContainer = () => {
     

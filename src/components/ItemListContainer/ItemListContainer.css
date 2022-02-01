@@ -6,8 +6,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://images.unsplash.com/photo-1598799170815-933217492614?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-image: url("https://images.unsplash.com/photo-1543208541-0961a29a8c3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    object-fit: cover;
     background-size: cover;
+    margin-bottom: 6rem;
 }
 
 .main-bienvenida h1 {
@@ -53,26 +55,29 @@
 }
 
 
+/* ----- Titulo Destacado ----- */
+.destacados-title {
+    margin: 70px auto;
+    color: rgba(0,0,0,.5);
+    text-decoration: underline;
+    font-size: 1.4rem;
+}
+
+
 /* ----- Catalogo ----- */
 
 .gridProductos {
     width: 80vw;
-    margin: 40px auto;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    gap: 18px;
+    gap: 5px;
 }
 
-.producto img {
-    width: 230px;
-    height: 230px;
-    object-fit: contain;
-    border-bottom: 1px solid rgb(209, 209, 209);
-}
-
-.producto {
+.item-producto {
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,29 +85,33 @@
     gap: 9px;
 }
 
-.producto:hover {
+.item-producto:hover {
     transform: scale(1.03,1.03) ;
     cursor: pointer;
-    box-shadow: 4px 6px 7px 1px rgba(192,187,197,0.54);
-    border: 1px solid rgb(209, 209, 209)
 }
 
-.descripcionProducto {
-    color: rgb(55, 55, 55);
-    font-size: 0.9rem;
+.item-producto img {
+    object-fit: contain;
 }
 
-.producto button {
-    width: 150px;
-    height: 30px;
-    margin: 10px auto;
-    background-color: #ff7700;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+.precioCarta span { 
+    font-size: 1rem;
 }
 
-.producto button:hover {
+#card-bottom {
+    width: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-producto-btn {
+    height: 2rem;
+    width: 5rem;
     background-color: #ff8c27;
+    outline: none;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    cursor: pointer;
 }

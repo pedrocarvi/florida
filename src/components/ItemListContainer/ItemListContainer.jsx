@@ -4,27 +4,27 @@ import './ItemListContainer.css'
 import ItemList from './ItemList'
 import { getFirestore } from '../../services/getFirestore.js';
 import Spinner from './Spinner';
-import { productos } from '../../services/productos';
+// import { productos } from '../../services/productos';
 
-const getFetch = new Promise((resolve, reject) => {
-    const condition = true;
+// const getFetch = new Promise((resolve, reject) => {
+//     const condition = true;
 
-    if (condition) {
-        setTimeout(() => {
-            resolve(productos)
-        }, 2000);
-    } else {
-        setTimeout(() => {
-            reject('404 not found')
-        }, 2000);
-    }
-})
+//     if (condition) {
+//         setTimeout(() => {
+//             resolve(productos)
+//         }, 2000);
+//     } else {
+//         setTimeout(() => {
+//             reject('404 not found')
+//         }, 2000);
+//     }
+// })
 
 export default function ItemListContainer({greeting}) {
 
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
 
+    const [loading, setLoading] = useState(true)
         
     const { categoryID } = useParams()
 
@@ -32,7 +32,7 @@ export default function ItemListContainer({greeting}) {
     useEffect(() => {
 
             const db = getFirestore()
-            const dbQuery = categoryID ?  db.collection('items').where('categoria','==',categoryID) : db.collection('items')
+            const dbQuery = categoryID ?  db.collection('items').where('categoria','==', categoryID)  : db.collection('items')
             dbQuery.get()
             .then (data => setProducts(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
             .catch(err=>console.log(err) )
@@ -64,8 +64,8 @@ export default function ItemListContainer({greeting}) {
         
         // }
         
-    }, [categoryID] )
-   
+    }, [categoryID] ) 
+
     return(
         <>
         <div className="main-bienvenida">

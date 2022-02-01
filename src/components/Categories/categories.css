@@ -1,0 +1,32 @@
+#containerCategories {
+    min-height: fit-content;
+    margin: 10rem auto;
+}
+
+#containerCategories a {
+    text-decoration: none;
+}
+
+.category-title {
+    margin: 100px auto 0 auto;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#div-categories {
+    width: 80vw;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px
+}
+
+#categories-card-title {
+    font-size: 1rem;
+}
+
+.category-card:hover {
+    cursor: pointer;    
+    transform: scale(1.1,1.1);
+    transition: all .2s 0s ease;
+}

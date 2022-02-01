@@ -1,17 +1,24 @@
 import { createContext, useState, useContext } from 'react'
 
-const CartContext = createContext ([])
+const CartContext = createContext([]);
 
 export const useCartContext = () =>{
     return useContext(CartContext)
 }
 
-const CartContextProvider = ({children}) => {
+export const CartContextProvider = ({children}) => {
 
     const [cartList, setCartList] = useState([])
 
-    const addItem = (item, count) =>{
-        if(isInCart(item)){
+    // Funciones del carrito
+
+    const isInCart = (item) =>{
+        return cartList.some((cartItem) => cartItem.id === item.id)
+    }
+    
+    const addItem = (item, count) => {
+
+        if (isInCart(item)){
             let newCart = cartList;
             newCart.forEach((cartItem) => {
                 if(cartItem.id === item.id){
@@ -19,10 +26,13 @@ const CartContextProvider = ({children}) => {
                 }
             });
             setCartList(newCart);
-        }else{
+        }
+        else{
             setCartList([...cartList, {...item, count}])
         }
     }
+
+    const cartTotal = cartList.reduce((total, item) => total + item.subtotal, 0);
 
     const removeItem = (id) =>{
         setCartList(cartList.filter(prod => prod.id !== id))
@@ -32,10 +42,6 @@ const CartContextProvider = ({children}) => {
         setCartList([])
     }
 
-    const isInCart = (item) =>{
-        return cartList.some((cartItem) => cartItem.id === item.id)
-    }
-
     const itemCounter = () =>{
         return cartList.reduce((accum, item) => accum = accum + item.count, 0)
     }
@@ -43,6 +49,7 @@ const CartContextProvider = ({children}) => {
     return (
         <CartContext.Provider value={{
             cartList,
+            cartTotal,
             addItem,
             removeItem,
             clearCart,

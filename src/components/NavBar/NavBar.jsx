@@ -1,98 +1,97 @@
-import React from 'react'
-import './NavBar.css'
+import React, { useState } from 'react'
+import './navbar.css'
 import imagenes from "../../img/imagenes.js"
-import Carro from './CartWidget.jsx'
+import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../../context/CartContext'
+import { VscListSelection, VscClose } from 'react-icons/vsc'
+import { SidebarData } from './SidebarData'
+import { IconContext } from 'react-icons'
+
 
 const NavBar = () => {
 
+    const { itemCounter } = useCartContext();
+
+    const [sidebar, setSidebar] = useState(false)
+
+    const showSidebar = () => setSidebar(!sidebar)
+
     return (
 
-        <header id="arriba" className="header">
-        
-        {/* <!-- HEADER DESKTOP --> */}
-        <div className="header__desktop">
-            
-            {/* <!-- Logo --> */}
-            <div className="header__desktop--logo">
-                <img src={imagenes.logo} alt="logo" className="imagenLogo"/> 
-            </div>
+        <header>
+            <IconContext.Provider value={{ color: '#fff' }}>
 
-            {/* <!-- Buscador --> */}
-            {/* <div className="header__desktop--search">
-                <input type="search" id="buscador" placeholder="Busca tu producto..." />
-                <label for="buscador" className="search--lupa"> <img src={imagenes.lupa} alt="buscador" /> </label>
-            </div> */}
-          
-            <div className="header__desktop--usuario">
-                <Carro/>
-            </div>
-           
+                <div className="navbar">
 
-            {/* <!-- Nav --> */}
-            <nav className="header__desktop--menu">
-                <ul>
-                    <li> <Link to="/"> Inicio </Link> </li>
+                    <div className="navbarTop">
 
-                    <li> <Link to="/categoria/frutossecos"> Frutos secos </Link> </li>
+                        <div className="hamburger-div">
+                            <VscListSelection className='hamburger-icon' onClick={showSidebar} />
+                        </div>
 
-                    <li> <Link to="/categoria/legumbres"> Legumbres </Link> </li>
+                        
+                        <div className="logo">
+                            <Link to="/"> 
+                                <img src={imagenes.logo} alt="logo" className="imagenLogo" />
+                            </Link>
+                        </div>
+                       
 
-                    <li> <Link to="/categoria/pastas"> Pastas </Link></li>
+                        <div className="cart">
+                            <Link to='/cart' className='enlaceCarrito'>
+                                <CartWidget />
+                                <p> {itemCounter() !== 0 && itemCounter()} </p>
+                            </Link>
+                        </div>
 
-                    <li> <Link to="/categoria/semillas"> Semillas </Link> </li>
+                        {/* RESPONSIVE NAV */}
 
-                </ul>
-            </nav>
+                        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} id='navResponsive'>
 
-        </div>
+                            <ul className="nav-menu-items" onClick={showSidebar}>
 
-        {/* <!-- HEADER MOBILE --> */}
+                                <li className="navbar-toggle">
+                                    <Link to="#" className='menu-close'>
+                                        <VscClose />
+                                    </Link>
+                                </li>
 
-        <div className="header__mobile">
+                                {SidebarData.map((item, index) => {
+                                    return (
+                                        <li key={index} className={item.class}>
+                                            <Link to={item.path}>
+                                                {item.icon}
+                                                <span> {item.title} </span>
+                                            </Link>
+                                        </li>
+                                    )
+                                })}
 
-            {/* <!-- Menu hamburguesa--> */}
-            <button className="hamburger hamburger--squeeze panel-btn" type="button" id="hamburguer">
-                <span className="hamburger-box">
-                    <span className="hamburger-inner"> </span>
-                </span>
-            </button>
-
-            {/* <!-- Logo --> */}
-            <div className="header__logo">
-                <a href="index.html"> <img src={imagenes.logo} alt="logo" className="imagenLogo" /> </a>
-            </div>
-
-            {/* <!-- Nav --> */}
-            <aside classNameName="panel">
-                <nav className="header__menu menu">
-                    <ul>
-                        <li> Inicio </li>
-
-                        <li id="spanBtn"> Productos <span> <img src={imagenes.flechaAbajo} alt="flecha" width="13px"/> </span>
-                            <ul className="sublista">
-                                <li> Frutos secos  </li>
-                                <li> Granolas  </li>
-                                <li> Cereales </li>
-                                <li> Mixs </li>
-                                <li> Legumbres </li>
-                                <li> Yerba </li>
-                                <li> Harina  </li>
-                                <li> Especias </li>
-                                <li> Barras de cereal </li>
-                                <li> Semillas </li>
-                                <li> Aceite de oliva </li>
-                                <li> Varios </li>   
                             </ul>
-                        </li>
+                        </nav>
+                    </div>
 
-                    </ul>
-                </nav>
-            </aside>
+                    {/* DESKTOP NAV */}
+                    <div id="navDesktop">
+                        <ul>
+                            {SidebarData.map((item, index) => {
+                                return (
+                                    <li key={index} className={item.class}>
+                                        <Link to={item.path}>
+                                            {item.icon}
+                                            <span> {item.title} </span>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                            }
+                        </ul>
+                    </div>
 
-        </div>
-
-    </header>
+                </div>
+            </IconContext.Provider>
+        </header>
 
     )
 }
